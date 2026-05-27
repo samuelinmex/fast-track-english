@@ -38,7 +38,10 @@ export function Header() {
       </div>
 
       <Container>
-        <div className="flex h-20 items-center justify-between gap-6">
+        <div
+          id="main-menu-target"
+          className="flex h-20 items-center justify-between gap-6"
+        >
           <Link href="/" className="group flex items-center gap-3">
             <motion.div
               whileHover={{ rotate: -6, scale: 1.05 }}
@@ -47,7 +50,10 @@ export function Header() {
             >
               <span className="relative z-10">FT</span>
               <motion.span
-                animate={{ scale: [1, 1.35, 1], opacity: [0.45, 0, 0.45] }}
+                animate={{
+                  scale: [1, 1.35, 1],
+                  opacity: [0.45, 0, 0.45],
+                }}
                 transition={{ duration: 2.2, repeat: Infinity }}
                 className="absolute inset-0 rounded-2xl bg-red-500"
               />
@@ -81,9 +87,14 @@ export function Header() {
                     <motion.span
                       layoutId="active-nav"
                       className="absolute inset-0 rounded-full bg-red-600"
-                      transition={{ type: "spring", stiffness: 320, damping: 28 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 320,
+                        damping: 28,
+                      }}
                     />
                   )}
+
                   <span className="relative z-10">{item.label}</span>
                 </Link>
               );
@@ -91,11 +102,19 @@ export function Header() {
           </nav>
 
           <div className="hidden items-center gap-3 lg:flex">
-            <Button href="/contacto" variant="secondary">
+            <Button
+              href="/contacto"
+              variant="secondary"
+              enableTravelAnimation={false}
+            >
               Agendar clase
             </Button>
 
-            <Button href={siteConfig.facebookUrl} target="_blank">
+            <Button
+              href={siteConfig.facebookUrl}
+              target="_blank"
+              enableTravelAnimation={false}
+            >
               Facebook
               <ArrowRight className="ml-2" size={17} />
             </Button>
@@ -144,8 +163,16 @@ export function Header() {
               </nav>
 
               <div className="mt-5 grid gap-3">
-                <Button href="/contacto">Agendar clase</Button>
-                <Button href={siteConfig.facebookUrl} target="_blank" variant="secondary">
+                <Button href="/contacto" enableTravelAnimation={false}>
+                  Agendar clase
+                </Button>
+
+                <Button
+                  href={siteConfig.facebookUrl}
+                  target="_blank"
+                  variant="secondary"
+                  enableTravelAnimation={false}
+                >
                   Contactar por Facebook
                 </Button>
               </div>
