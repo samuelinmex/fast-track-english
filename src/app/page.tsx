@@ -14,6 +14,7 @@ import { Container } from "@/components/shared/Container";
 import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/animations/FadeIn";
 import { DiagnosticOfferPopup } from "@/components/shared/DiagnosticOfferPopup";
+import { EnglishLevelGame } from "@/components/shared/EnglishLevelGame";
 
 const highlights = [
   "Desde cero",
@@ -41,7 +42,7 @@ const services = [
       "Prepárate para atención al cliente, entrevistas, hoteles, restaurantes y oportunidades en Cancún.",
     icon: Briefcase,
   },
-   {
+  {
     title: "Centro de Preparación Cambridge",
     description:
       "Un programa especial para alumnos que desean prepararse con estructura para exámenes Cambridge.",
@@ -74,6 +75,7 @@ export default function HomePage() {
   return (
     <main>
       <DiagnosticOfferPopup />
+
       <section className="relative min-h-[calc(100vh-5rem)] overflow-hidden bg-slate-950 text-white">
         <div className="absolute inset-0">
           <div className="absolute left-[-12%] top-[-18%] h-[560px] w-[560px] rounded-full bg-red-600/35 blur-[130px]" />
@@ -142,11 +144,11 @@ export default function HomePage() {
               </Button>
 
               <Button
-                href="/clases"
+                href="#nivel-rapido"
                 variant="ghost"
                 className="bg-white/10 text-white ring-1 ring-white/15 hover:bg-white/15"
               >
-                Ver clases
+                Jugar reto de nivel
               </Button>
             </div>
 
@@ -166,107 +168,128 @@ export default function HomePage() {
           </FadeIn>
 
           <FadeIn delay={0.2}>
-  <div className="relative mx-auto w-full max-w-xl">
-    <motion.div
-      initial={{ opacity: 0, y: 24, scale: 0.98 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{
-        delay: 0.2,
-        duration: 0.7,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-      className="relative overflow-hidden rounded-[2.75rem] border border-white/10 bg-white/10 p-3 shadow-2xl shadow-red-950/40 backdrop-blur"
-    >
-      <div className="relative h-[560px] overflow-hidden rounded-[2.25rem]">
-        <Image
-          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1300&q=85"
-          alt="Grupo de estudiantes aprendiendo inglés en una clase moderna"
-          fill
-          priority
-          className="object-cover"
-        />
+            <div className="relative mx-auto w-full max-w-xl">
+              <motion.div
+                initial={{ opacity: 0, y: 24, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{
+                  delay: 0.2,
+                  duration: 0.7,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="relative overflow-hidden rounded-[2.75rem] border border-white/10 bg-white/10 p-3 shadow-2xl shadow-red-950/40 backdrop-blur"
+              >
+                <div className="relative h-[560px] overflow-hidden rounded-[2.25rem]">
+                  <Image
+                    src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1300&q=85"
+                    alt="Grupo de estudiantes aprendiendo inglés en una clase moderna"
+                    fill
+                    priority
+                    className="object-cover"
+                  />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/45 via-transparent to-slate-950/20" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-slate-950/45 via-transparent to-slate-950/20" />
 
-        <motion.div
-          aria-hidden="true"
-          animate={{ x: ["-120%", "120%"] }}
-          transition={{
-            duration: 4.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            repeatDelay: 2,
-          }}
-          className="absolute inset-y-0 w-1/2 bg-gradient-to-r from-transparent via-white/10 to-transparent"
-        />
+                  <motion.div
+                    aria-hidden="true"
+                    animate={{ x: ["-120%", "120%"] }}
+                    transition={{
+                      duration: 4.5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      repeatDelay: 2,
+                    }}
+                    className="absolute inset-y-0 w-1/2 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+                  />
 
-        <div className="absolute left-5 top-5 rounded-full border border-white/15 bg-slate-950/55 px-4 py-2 text-xs font-black uppercase tracking-[0.25em] text-white backdrop-blur-xl">
-          Fast Track English
-        </div>
+                  <div className="absolute left-5 top-5 rounded-full border border-white/15 bg-slate-950/55 px-4 py-2 text-xs font-black uppercase tracking-[0.25em] text-white backdrop-blur-xl">
+                    Fast Track English
+                  </div>
 
-        <div className="absolute bottom-5 left-5 right-5 rounded-[1.75rem] border border-white/15 bg-slate-950/82 p-6 text-white shadow-2xl backdrop-blur-xl">
-          <p className="text-xs font-black uppercase tracking-[0.28em] text-red-300">
-            Tu siguiente nivel empieza aquí
-          </p>
+                  <div className="absolute bottom-5 left-5 right-5 rounded-[1.75rem] border border-white/15 bg-slate-950/82 p-6 text-white shadow-2xl backdrop-blur-xl">
+                    <p className="text-xs font-black uppercase tracking-[0.28em] text-red-300">
+                      Tu siguiente nivel empieza aquí
+                    </p>
 
-          <p className="mt-2 text-2xl font-black leading-tight tracking-[-0.04em] md:text-3xl">
-            Inglés útil para estudiar, trabajar, viajar y comunicarte mejor.
-          </p>
+                    <p className="mt-2 text-2xl font-black leading-tight tracking-[-0.04em] md:text-3xl">
+                      Inglés útil para estudiar, trabajar, viajar y comunicarte
+                      mejor.
+                    </p>
 
-          <div className="mt-5 flex flex-wrap gap-2">
-            <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-white/85">
-              Desde cero
-            </span>
-            <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-white/85">
-              Conversación
-            </span>
-            <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-white/85">
-              Turismo
-            </span>
-          </div>
-        </div>
-      </div>
-    </motion.div>
+                    <div className="mt-5 flex flex-wrap gap-2">
+                      <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-white/85">
+                        Desde cero
+                      </span>
+                      <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-white/85">
+                        Conversación
+                      </span>
+                      <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-white/85">
+                        Turismo
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
 
-    <motion.div
-      initial={{ opacity: 0, x: 22, y: -10 }}
-      animate={{ opacity: 1, x: 0, y: 0 }}
-      transition={{
-        delay: 0.55,
-        duration: 0.65,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-      className="absolute -right-3 top-20 hidden overflow-hidden rounded-[1.5rem] border border-white/15 bg-red-600/95 px-5 py-4 text-white shadow-2xl shadow-red-950/40 backdrop-blur-xl md:block"
-    >
-      <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent" />
+              <motion.div
+                initial={{ opacity: 0, x: 22, y: -10 }}
+                animate={{ opacity: 1, x: 0, y: 0 }}
+                transition={{
+                  delay: 0.55,
+                  duration: 0.65,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="absolute -right-3 top-20 hidden overflow-hidden rounded-[1.5rem] border border-white/15 bg-red-600/95 px-5 py-4 text-white shadow-2xl shadow-red-950/40 backdrop-blur-xl md:block"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent" />
 
-      <div className="relative">
-        <p className="text-[10px] font-black uppercase tracking-[0.25em] text-white/75">
-          progreso real
-        </p>
-        <div className="mt-2 flex items-end gap-2">
-          <p className="text-4xl font-black leading-none">A+</p>
-          <p className="pb-1 text-sm font-black">más confianza</p>
-        </div>
-      </div>
-    </motion.div>
+                <div className="relative">
+                  <p className="text-[10px] font-black uppercase tracking-[0.25em] text-white/75">
+                    progreso real
+                  </p>
+                  <div className="mt-2 flex items-end gap-2">
+                    <p className="text-4xl font-black leading-none">A+</p>
+                    <p className="pb-1 text-sm font-black">más confianza</p>
+                  </div>
+                </div>
+              </motion.div>
 
-    <motion.div
-  initial={{ opacity: 0, x: -18, y: -8 }}
-  animate={{ opacity: 1, x: 0, y: 0 }}
-  transition={{
-    delay: 0.65,
-    duration: 0.65,
-    ease: [0.22, 1, 0.36, 1],
-  }}
-  className="absolute -left-3 top-24 z-30 hidden rounded-full border border-white/15 bg-white/95 px-5 py-3 text-sm font-black text-slate-950 shadow-2xl backdrop-blur-xl md:block"
->
-  Empieza desde cero
-</motion.div>
-  </div>
-</FadeIn>
+              <motion.div
+                initial={{ opacity: 0, x: -18, y: -8 }}
+                animate={{ opacity: 1, x: 0, y: 0 }}
+                transition={{
+                  delay: 0.65,
+                  duration: 0.65,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="absolute -left-3 top-24 z-30 hidden rounded-full border border-white/15 bg-white/95 px-5 py-3 text-sm font-black text-slate-950 shadow-2xl backdrop-blur-xl md:block"
+              >
+                Empieza desde cero
+              </motion.div>
+            </div>
+          </FadeIn>
+        </Container>
+      </section>
 
+      <section id="nivel-rapido" className="bg-white py-24">
+        <Container>
+          <FadeIn className="mx-auto mb-12 max-w-3xl text-center">
+            <p className="text-sm font-black uppercase tracking-[0.32em] text-red-600">
+              Reto rápido
+            </p>
+
+            <h2 className="mt-3 text-4xl font-black tracking-[-0.04em] text-slate-950 sm:text-5xl">
+              Antes de escribirnos, juega y descubre tu nivel aproximado.
+            </h2>
+
+            <p className="mt-5 text-lg leading-8 text-slate-600">
+              Un mini reto para despertar tu curiosidad. El resultado es
+              orientativo, pero puede ayudarte a decidir por dónde empezar.
+            </p>
+          </FadeIn>
+
+          <EnglishLevelGame />
         </Container>
       </section>
 
@@ -276,9 +299,11 @@ export default function HomePage() {
             <p className="text-sm font-black uppercase tracking-[0.32em] text-red-600">
               Aprende diferente
             </p>
+
             <h2 className="mt-3 text-4xl font-black tracking-[-0.04em] text-slate-950 sm:text-5xl">
               Una escuela de inglés pensada para personas reales.
             </h2>
+
             <p className="mt-5 text-lg leading-8 text-slate-600">
               Fast Track English no busca que memorices por obligación. Busca
               que entiendas, practiques y empieces a comunicarte con más
@@ -369,6 +394,7 @@ export default function HomePage() {
                   <p className="text-sm font-black uppercase tracking-[0.28em] text-red-600">
                     Clases con propósito
                   </p>
+
                   <p className="mt-2 text-2xl font-black tracking-tight text-slate-950">
                     Aprende inglés para usarlo, no solo para estudiarlo.
                   </p>
@@ -396,9 +422,11 @@ export default function HomePage() {
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
                 <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
                   <p className="text-2xl font-black text-red-600">01</p>
+
                   <h3 className="mt-3 font-black text-slate-950">
                     Aprende paso a paso
                   </h3>
+
                   <p className="mt-2 text-sm leading-6 text-slate-600">
                     Cada clase parte de lo que ya sabes y te guía con
                     explicaciones claras, ejercicios prácticos y avance
@@ -408,9 +436,11 @@ export default function HomePage() {
 
                 <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
                   <p className="text-2xl font-black text-red-600">02</p>
+
                   <h3 className="mt-3 font-black text-slate-950">
                     Habla con más confianza
                   </h3>
+
                   <p className="mt-2 text-sm leading-6 text-slate-600">
                     Practica frases, respuestas y situaciones reales para perder
                     el miedo a equivocarte y empezar a comunicarte.
@@ -429,9 +459,11 @@ export default function HomePage() {
               <p className="text-sm font-black uppercase tracking-[0.32em] text-white/75">
                 Próximo paso
               </p>
+
               <h2 className="mt-3 max-w-4xl text-4xl font-black tracking-[-0.04em] sm:text-5xl">
                 Empieza con una clase, una duda o una meta clara.
               </h2>
+
               <p className="mt-5 max-w-2xl text-lg leading-8 text-white/85">
                 No necesitas tener buen nivel para comenzar. Solo necesitas dar
                 el primer paso y construir desde ahí.
@@ -441,6 +473,7 @@ export default function HomePage() {
                 <Button href="/contacto" variant="secondary">
                   Contactar ahora
                 </Button>
+
                 <Button
                   href="/servicios"
                   className="bg-slate-950 hover:bg-slate-900"
