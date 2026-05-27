@@ -64,6 +64,7 @@ export default function ContactoPage() {
                   <option>Aprender desde cero</option>
                   <option>Mejorar conversación</option>
                   <option>Inglés para turismo o trabajo</option>
+                  <option>Preparación para certificación Cambridge</option>
                   <option>Regularización escolar</option>
                 </select>
 

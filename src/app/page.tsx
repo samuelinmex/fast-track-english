@@ -3,6 +3,7 @@
 import Image from "next/image";
 import {
   ArrowRight,
+  Award,
   Briefcase,
   GraduationCap,
   MessageCircle,
@@ -39,6 +40,12 @@ const services = [
     description:
       "Prepárate para atención al cliente, entrevistas, hoteles, restaurantes y oportunidades en Cancún.",
     icon: Briefcase,
+  },
+    {
+    title: "Preparación Cambridge",
+    description:
+      "Un programa especial para alumnos que desean prepararse con estructura para una certificación Cambridge.",
+    icon: Award,
   },
 ];
 
@@ -279,7 +286,7 @@ export default function HomePage() {
             </p>
           </FadeIn>
 
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
+          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {services.map((service, index) => {
               const Icon = service.icon;
 
