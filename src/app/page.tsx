@@ -373,15 +373,19 @@ export default function HomePage() {
             </p>
           </FadeIn>
 
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
+          <div className="mt-14 grid items-stretch gap-6 md:grid-cols-3">
             {methodSteps.map((step, index) => (
-              <FadeIn key={step.title} delay={index * 0.1}>
-                <article className="rounded-[2rem] border border-white/10 bg-white/5 p-8 backdrop-blur transition hover:-translate-y-2 hover:bg-white/10">
-                  <p className="text-5xl font-black text-red-400">
+              <FadeIn key={step.title} delay={index * 0.1} className="h-full">
+                <article className="flex h-full min-h-[270px] flex-col rounded-[2rem] border border-white/10 bg-white/5 p-8 backdrop-blur transition hover:-translate-y-2 hover:bg-white/10">
+                  <p className="text-5xl font-black leading-none text-red-400">
                     {step.number}
                   </p>
-                  <h3 className="mt-6 text-2xl font-black">{step.title}</h3>
-                  <p className="mt-4 leading-7 text-slate-300">
+
+                  <h3 className="mt-7 text-2xl font-black leading-tight">
+                    {step.title}
+                  </h3>
+
+                  <p className="mt-4 flex-1 leading-7 text-slate-300">
                     {step.description}
                   </p>
                 </article>
