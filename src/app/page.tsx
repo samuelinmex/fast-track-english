@@ -12,6 +12,7 @@ import { motion } from "framer-motion";
 import { Container } from "@/components/shared/Container";
 import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/animations/FadeIn";
+import { DiagnosticOfferPopup } from "@/components/shared/DiagnosticOfferPopup";
 
 const highlights = [
   "Desde cero",
@@ -65,6 +66,7 @@ const methodSteps = [
 export default function HomePage() {
   return (
     <main>
+      <DiagnosticOfferPopup />
       <section className="relative min-h-[calc(100vh-5rem)] overflow-hidden bg-slate-950 text-white">
         <div className="absolute inset-0">
           <div className="absolute left-[-12%] top-[-18%] h-[560px] w-[560px] rounded-full bg-red-600/35 blur-[130px]" />
