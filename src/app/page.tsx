@@ -17,9 +17,9 @@ import { DiagnosticOfferPopup } from "@/components/shared/DiagnosticOfferPopup";
 
 const highlights = [
   "Desde cero",
-  "Conversación real",
-  "Inglés para turismo",
-  "Clases personalizadas",
+  "Conversación",
+  "Turismo en Cancún",
+  "Personalizadas",
 ];
 
 const services = [
@@ -158,7 +158,7 @@ export default function HomePage() {
                   initial={{ opacity: 0, y: 18 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.18 + index * 0.08, duration: 0.55 }}
-                  className="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-center text-xs font-black uppercase tracking-wide text-white backdrop-blur"
+                  className="flex min-h-[58px] items-center justify-center rounded-2xl border border-white/10 bg-white/10 px-3 py-3 text-center text-sm font-black leading-tight text-white backdrop-blur"
                 >
                   {item}
                 </motion.div>

@@ -15,14 +15,32 @@ type IndicatorState = {
   width: number;
 };
 
+const topBannerMessages = [
+  "Aprende inglés desde cero",
+  "Habla con confianza",
+  "Inglés para turismo en Cancún",
+  "Mejora tu conversación",
+];
+
 export function Header() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [activeBannerMessage, setActiveBannerMessage] = useState(0);
   const navRef = useRef<HTMLDivElement | null>(null);
   const [indicator, setIndicator] = useState<IndicatorState>({
     left: 0,
     width: 0,
   });
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setActiveBannerMessage((current) =>
+        current === topBannerMessages.length - 1 ? 0 : current + 1
+      );
+    }, 2600);
+
+    return () => window.clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const updateIndicator = () => {
@@ -52,25 +70,21 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/85 backdrop-blur-2xl">
-      <div className="relative overflow-hidden bg-slate-950 text-white">
-        <motion.div
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{
-            duration: 18,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="flex w-[200%] whitespace-nowrap py-2 text-xs font-black uppercase tracking-[0.28em] text-white/85"
-        >
-          <span className="mx-8">Aprende inglés desde cero</span>
-          <span className="mx-8 text-red-300">Habla con confianza</span>
-          <span className="mx-8">Inglés para turismo en Cancún</span>
-          <span className="mx-8 text-red-300">Mejora tu conversación</span>
-          <span className="mx-8">Aprende inglés desde cero</span>
-          <span className="mx-8 text-red-300">Habla con confianza</span>
-          <span className="mx-8">Inglés para turismo en Cancún</span>
-          <span className="mx-8 text-red-300">Mejora tu conversación</span>
-        </motion.div>
+      <div className="relative overflow-hidden bg-slate-950 px-4 py-2 text-center text-white">
+        <div className="absolute inset-0 bg-gradient-to-r from-red-600/20 via-transparent to-red-600/20" />
+
+        <AnimatePresence mode="wait">
+          <motion.p
+            key={activeBannerMessage}
+            initial={{ opacity: 0, y: 8, filter: "blur(6px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            exit={{ opacity: 0, y: -8, filter: "blur(6px)" }}
+            transition={{ duration: 0.45, ease: "easeOut" }}
+            className="relative text-xs font-black uppercase tracking-[0.22em] text-red-100 sm:text-sm"
+          >
+            {topBannerMessages[activeBannerMessage]}
+          </motion.p>
+        </AnimatePresence>
       </div>
 
       <Container>
@@ -80,22 +94,22 @@ export function Header() {
         >
           <Link href="/" className="group flex items-center gap-3">
             <motion.div
-  whileHover={{ rotate: -4, scale: 1.05 }}
-  className="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-2xl bg-red-600 text-white shadow-lg shadow-red-600/25"
->
-  <span className="relative z-10 text-[13px] font-black tracking-[-0.08em]">
-    FTE
-  </span>
+              whileHover={{ rotate: -4, scale: 1.05 }}
+              className="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-2xl bg-red-600 text-white shadow-lg shadow-red-600/25"
+            >
+              <span className="relative z-10 text-[13px] font-black tracking-[-0.08em]">
+                FTE
+              </span>
 
-  <motion.span
-    animate={{
-      scale: [1, 1.35, 1],
-      opacity: [0.45, 0, 0.45],
-    }}
-    transition={{ duration: 2.2, repeat: Infinity }}
-    className="absolute inset-0 rounded-2xl bg-red-500"
-  />
-</motion.div>
+              <motion.span
+                animate={{
+                  scale: [1, 1.35, 1],
+                  opacity: [0.45, 0, 0.45],
+                }}
+                transition={{ duration: 2.2, repeat: Infinity }}
+                className="absolute inset-0 rounded-2xl bg-red-500"
+              />
+            </motion.div>
 
             <div className="leading-tight">
               <p className="text-sm font-black uppercase tracking-wide text-slate-950">
