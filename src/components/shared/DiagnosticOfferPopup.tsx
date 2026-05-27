@@ -125,10 +125,10 @@ export function DiagnosticOfferPopup({
 
               <div className="mt-6 flex flex-col gap-3">
                 <Button
-                  href="/contacto"
+                  href="/evaluacion"
                   className="justify-center bg-red-600 text-white shadow-xl shadow-red-600/25 hover:bg-red-700"
                 >
-                  Quiero mi examen gratis
+                  Hacer evaluación gratis
                   <ArrowRight className="ml-2" size={18} />
                 </Button>
 

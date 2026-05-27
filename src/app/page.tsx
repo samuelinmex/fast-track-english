@@ -14,7 +14,6 @@ import { Container } from "@/components/shared/Container";
 import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/animations/FadeIn";
 import { DiagnosticOfferPopup } from "@/components/shared/DiagnosticOfferPopup";
-import { EnglishLevelGame } from "@/components/shared/EnglishLevelGame";
 
 const highlights = [
   "Desde cero",
@@ -144,11 +143,11 @@ export default function HomePage() {
               </Button>
 
               <Button
-                href="#nivel-rapido"
+                href="/evaluacion"
                 variant="ghost"
                 className="bg-white/10 text-white ring-1 ring-white/15 hover:bg-white/15"
               >
-                Jugar reto de nivel
+                Evaluación gratis
               </Button>
             </div>
 
@@ -272,24 +271,40 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section id="nivel-rapido" className="bg-white py-24">
+      <section className="bg-white py-24">
         <Container>
-          <FadeIn className="mx-auto mb-12 max-w-3xl text-center">
-            <p className="text-sm font-black uppercase tracking-[0.32em] text-red-600">
-              Reto rápido
-            </p>
+          <FadeIn>
+            <div className="relative overflow-hidden rounded-[2rem] bg-slate-950 p-8 text-white shadow-2xl shadow-slate-950/20 md:p-14">
+              <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-red-600/30 blur-3xl" />
 
-            <h2 className="mt-3 text-4xl font-black tracking-[-0.04em] text-slate-950 sm:text-5xl">
-              Antes de escribirnos, juega y descubre tu nivel aproximado.
-            </h2>
+              <div className="relative grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+                <div>
+                  <p className="text-sm font-black uppercase tracking-[0.32em] text-red-300">
+                    Evaluación online gratuita
+                  </p>
 
-            <p className="mt-5 text-lg leading-8 text-slate-600">
-              Un mini reto para despertar tu curiosidad. El resultado es
-              orientativo, pero puede ayudarte a decidir por dónde empezar.
-            </p>
+                  <h2 className="mt-3 max-w-4xl text-4xl font-black tracking-[-0.04em] sm:text-5xl">
+                    Descubre tu nivel aproximado de inglés en pocos minutos.
+                  </h2>
+
+                  <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
+                    Responde una evaluación rápida y déjanos tus datos para enviarte
+                    tus resultados con una recomendación personalizada.
+                  </p>
+
+                  <p className="mt-4 text-sm font-bold leading-6 text-slate-400">
+                    Esta evaluación es orientativa. Para conocer tu nivel con mayor
+                    precisión, recomendamos una evaluación profesional en la escuela.
+                  </p>
+                </div>
+
+                <Button href="/evaluacion">
+                  Hacer evaluación gratis
+                  <ArrowRight className="ml-2" size={18} />
+                </Button>
+              </div>
+            </div>
           </FadeIn>
-
-          <EnglishLevelGame />
         </Container>
       </section>
 

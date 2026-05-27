@@ -19,6 +19,9 @@ export const navigationItems = [
     label: "Cursos",
     href: "/cursos",
   },
+  { label: "Evaluación",
+    href: "/evaluacion"
+  },
   {
     label: "Blog",
     href: "/blog",
