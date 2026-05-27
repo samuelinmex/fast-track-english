@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { MouseEvent, ReactNode, Ref } from "react";
 import { useRef } from "react";
+import { twMerge } from "tailwind-merge";
 
 type ButtonVariant = "primary" | "secondary" | "ghost";
 
@@ -52,7 +53,7 @@ export function Button({
   const baseClass =
     "inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-bold transition-all duration-300";
 
-  const finalClass = `${baseClass} ${variants[variant]} ${className}`;
+  const finalClass = twMerge(baseClass, variants[variant], className);
 
   function createTravelAnimation(destinationHref: string) {
     const source = buttonRef.current;
