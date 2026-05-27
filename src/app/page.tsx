@@ -41,10 +41,10 @@ const services = [
       "Prepárate para atención al cliente, entrevistas, hoteles, restaurantes y oportunidades en Cancún.",
     icon: Briefcase,
   },
-    {
-    title: "Preparación Cambridge",
+   {
+    title: "Centro de Preparación Cambridge",
     description:
-      "Un programa especial para alumnos que desean prepararse con estructura para una certificación Cambridge.",
+      "Un programa especial para alumnos que desean prepararse con estructura para exámenes Cambridge.",
     icon: Award,
   },
 ];
