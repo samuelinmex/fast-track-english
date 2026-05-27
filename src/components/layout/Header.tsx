@@ -4,15 +4,51 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Menu, Sparkles, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Container } from "@/components/shared/Container";
 import { Button } from "@/components/ui/Button";
 import { navigationItems } from "@/data/navigation";
 import { siteConfig } from "@/lib/site";
 
+type IndicatorState = {
+  left: number;
+  width: number;
+};
+
 export function Header() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const navRef = useRef<HTMLDivElement | null>(null);
+  const [indicator, setIndicator] = useState<IndicatorState>({
+    left: 0,
+    width: 0,
+  });
+
+  useEffect(() => {
+    const updateIndicator = () => {
+      const nav = navRef.current;
+      if (!nav) return;
+
+      const activeItem = nav.querySelector<HTMLElement>(
+        `[data-nav-href="${pathname}"]`
+      );
+
+      if (!activeItem) return;
+
+      setIndicator({
+        left: activeItem.offsetLeft,
+        width: activeItem.offsetWidth,
+      });
+    };
+
+    updateIndicator();
+
+    window.addEventListener("resize", updateIndicator);
+
+    return () => {
+      window.removeEventListener("resize", updateIndicator);
+    };
+  }, [pathname]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/85 backdrop-blur-2xl">
@@ -69,7 +105,22 @@ export function Header() {
             </div>
           </Link>
 
-          <nav className="hidden items-center gap-1 rounded-full border border-slate-200 bg-white p-1 shadow-sm lg:flex">
+          <nav
+            ref={navRef}
+            className="relative hidden items-center gap-1 rounded-full border border-slate-200 bg-white p-1 shadow-sm lg:flex"
+          >
+            <motion.span
+              className="absolute top-1 h-[calc(100%-8px)] rounded-full bg-red-600 shadow-lg shadow-red-600/25"
+              animate={{
+                left: indicator.left,
+                width: indicator.width,
+              }}
+              transition={{
+                duration: 0.42,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+            />
+
             {navigationItems.map((item) => {
               const isActive = pathname === item.href;
 
@@ -77,25 +128,14 @@ export function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`relative rounded-full px-4 py-2 text-sm font-bold transition-colors ${
+                  data-nav-href={item.href}
+                  className={`relative z-10 rounded-full px-4 py-2 text-sm font-bold transition-colors duration-300 ${
                     isActive
                       ? "text-white"
                       : "text-slate-600 hover:text-red-600"
                   }`}
                 >
-                  {isActive && (
-                    <motion.span
-                      layoutId="active-nav"
-                      className="absolute inset-0 rounded-full bg-red-600"
-                      transition={{
-                        type: "spring",
-                        stiffness: 320,
-                        damping: 28,
-                      }}
-                    />
-                  )}
-
-                  <span className="relative z-10">{item.label}</span>
+                  {item.label}
                 </Link>
               );
             })}
