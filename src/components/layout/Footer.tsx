@@ -11,9 +11,9 @@ export function Footer() {
         <div className="grid gap-10 py-12 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
           <div>
             <div className="mb-4 flex items-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-red-600 text-lg font-black">
-                FT
-              </div>
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-red-600 text-sm font-black tracking-[-0.04em] text-white">
+  FTE
+</div>
               <div>
                 <p className="font-black uppercase">{siteConfig.name}</p>
                 <p className="text-xs font-bold uppercase tracking-[0.32em] text-red-400">

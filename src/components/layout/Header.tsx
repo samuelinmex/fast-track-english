@@ -80,20 +80,22 @@ export function Header() {
         >
           <Link href="/" className="group flex items-center gap-3">
             <motion.div
-              whileHover={{ rotate: -6, scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300, damping: 18 }}
-              className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-red-600 text-lg font-black text-white shadow-lg shadow-red-600/25"
-            >
-              <span className="relative z-10">FT</span>
-              <motion.span
-                animate={{
-                  scale: [1, 1.35, 1],
-                  opacity: [0.45, 0, 0.45],
-                }}
-                transition={{ duration: 2.2, repeat: Infinity }}
-                className="absolute inset-0 rounded-2xl bg-red-500"
-              />
-            </motion.div>
+  whileHover={{ rotate: -4, scale: 1.05 }}
+  className="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-2xl bg-red-600 text-white shadow-lg shadow-red-600/25"
+>
+  <span className="relative z-10 text-[13px] font-black tracking-[-0.08em]">
+    FTE
+  </span>
+
+  <motion.span
+    animate={{
+      scale: [1, 1.35, 1],
+      opacity: [0.45, 0, 0.45],
+    }}
+    transition={{ duration: 2.2, repeat: Infinity }}
+    className="absolute inset-0 rounded-2xl bg-red-500"
+  />
+</motion.div>
 
             <div className="leading-tight">
               <p className="text-sm font-black uppercase tracking-wide text-slate-950">
