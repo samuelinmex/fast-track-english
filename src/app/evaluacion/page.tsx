@@ -83,9 +83,11 @@ export default function EvaluacionPage() {
   const [submitted, setSubmitted] = useState(false);
 
   const progress = useMemo(() => {
-    if (showContactForm) return 100;
-    return ((currentQuestion + 1) / questions.length) * 100;
-  }, [currentQuestion, showContactForm]);
+  if (!started) return 0;
+  if (showContactForm) return 100;
+
+  return (answers.filter(Boolean).length / questions.length) * 100;
+}, [started, answers, showContactForm]);
 
   const selectAnswer = (answer: string) => {
     const nextAnswers = [...answers];
@@ -195,7 +197,7 @@ export default function EvaluacionPage() {
                   <motion.div
                     className="h-full rounded-full bg-red-600"
                     initial={{ width: 0 }}
-                    animate={{ width: `${started ? progress : 0}%` }}
+                    animate={{ width: `${progress}%` }}
                     transition={{ duration: 0.35 }}
                   />
                 </div>
