@@ -6,7 +6,7 @@ import { futureCourses } from "@/data/courses";
 export default function CursosPage() {
   return (
     <main>
-      <section className="bg-slate-50 py-24">
+      <section className="bg-slate-50 pb-24 pt-32">
         <Container>
           <SectionHeader
             eyebrow="Cursos online"

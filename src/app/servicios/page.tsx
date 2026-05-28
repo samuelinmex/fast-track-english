@@ -75,7 +75,7 @@ const premiumBenefits = [
 export default function ServiciosPage() {
   return (
     <main>
-      <section className="bg-slate-50 py-24">
+      <section className="bg-slate-50 pb-24 pt-32">
         <Container>
           <SectionHeader
             eyebrow="Servicios"
@@ -194,7 +194,7 @@ export default function ServiciosPage() {
         </Container>
       </section>
 
-      <section className="bg-white py-24">
+      <section className="bg-white pb-24 pt-32">
         <Container>
           <FadeIn className="mx-auto max-w-3xl text-center">
             <p className="text-sm font-black uppercase tracking-[0.32em] text-red-600">

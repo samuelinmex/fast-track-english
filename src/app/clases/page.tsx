@@ -5,7 +5,7 @@ import { services } from "@/data/services";
 export default function ClasesPage() {
   return (
     <main>
-      <section className="bg-slate-50 py-24">
+      <section className="bg-slate-50 pb-24 pt-32">
         <Container>
           <SectionHeader
             eyebrow="Clases"

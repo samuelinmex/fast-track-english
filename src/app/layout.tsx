@@ -6,6 +6,7 @@ import { CursorAura } from "@/components/shared/CursorAura";
 import { ClickEffect } from "@/components/shared/ClickEffect";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
+import { ScrollToTop } from "@/components/shared/ScrollToTop";
 
 export const metadata: Metadata = {
   title: {
@@ -24,6 +25,7 @@ export default function RootLayout({
     <html lang="es">
       <body>
         <Header />
+        <ScrollToTop />
         {children}
         <Footer />
         <WhatsAppButton />

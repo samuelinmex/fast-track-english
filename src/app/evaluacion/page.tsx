@@ -175,7 +175,7 @@ export default function EvaluacionPage() {
         </Container>
       </section>
 
-      <section className="bg-slate-50 py-24">
+      <section className="bg-slate-50 pb-24 pt-32">
         <Container>
           <div className="mx-auto max-w-4xl overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-2xl shadow-slate-950/10">
             {!submitted && (

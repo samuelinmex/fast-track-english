@@ -123,7 +123,7 @@ export default function BlogPage() {
         </Container>
       </section>
 
-      <section className="bg-white py-24">
+      <section className="bg-white pb-24 pt-32">
         <Container>
           <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
             <motion.div
@@ -227,7 +227,7 @@ export default function BlogPage() {
         </Container>
       </section>
 
-      <section className="bg-slate-50 py-24">
+      <section className="bg-slate-50 pb-24 pt-32">
         <Container>
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}

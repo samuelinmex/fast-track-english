@@ -53,7 +53,7 @@ export default function ContactoPage() {
     <main>
       <DiagnosticOfferPopup delayMs={700} />
 
-      <section className="bg-slate-50 py-24">
+      <section className="bg-slate-50 pb-24 pt-32">
         <Container>
           <SectionHeader
             eyebrow="Contacto"
